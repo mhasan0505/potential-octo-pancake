@@ -1,0 +1,15 @@
+/* Shop.css */
+@keyframes scaleIn {
+    0% {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+  
+  .animate-card {
+    animation: scaleIn 0.5s ease forwards; /* Adjust duration and easing as needed */
+  }

@@ -1,0 +1,24 @@
+.brand-partner img {
+  width: 80%;
+  height: 200px;
+  aspect-ratio: 2/3;
+  object-fit: contain;
+  mix-blend-mode: color-burn;
+}
+.brand-partner img {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.brand-partner img:hover {
+  filter: grayscale(0%);
+}
+/* Remove cursor styles */
+.brand-partner img {
+  cursor: default;
+}
+
+/* Optionally, you can add this to ensure no pointer cursor on hover */
+.brand-partner img:hover {
+  cursor: default;
+}

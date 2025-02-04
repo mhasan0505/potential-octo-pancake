@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cart/
+Disallow: /checkout/
+
+# Sitemaps
+Sitemap: https://www.aquasupportbd.com/sitemap.xml
