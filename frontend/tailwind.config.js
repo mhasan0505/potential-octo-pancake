@@ -38,6 +38,11 @@ export default {
           light: '#FF8A65',    // Lighter coral for hover
           dark: '#F4511E',     // Darker coral for active
         },
+        background: {
+          DEFAULT: '#F9F9F9',
+          light: '#FFFFFF',
+          dark: '#F2F2F2',
+        },
         neutral: {
           50: '#F8FAFC',       // Lightest background
           100: '#F1F5F9',      // Light background

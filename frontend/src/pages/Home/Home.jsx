@@ -1,20 +1,19 @@
 import BrandPartner from "../../components/Brand_Partner/BrandPartner";
 import Carousel from "../../components/Carousel/Carousel";
-import MyTeam from "../../components/MyTeam/MyTeam";
 import OurClients from "../../components/OurClients/OurClients";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import Shop from "../Shop/Shop";
-// import RelativeProduct from "../../components/RelativeProduct/RelativeProduct";
+import BEnefits from "../../components/Benefits/BEnefits";
 
 const Home = () => {
   return (
     <div>
       <Carousel />
+      <Shop />
       <BrandPartner />
       <OurClients />
-      <Shop />
         {/* <RelativeProduct /> */}
-      <MyTeam />
+        <BEnefits />
       <Testimonials />
     </div>
   );

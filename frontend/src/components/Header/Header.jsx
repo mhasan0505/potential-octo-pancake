@@ -3,7 +3,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { format } from "date-fns";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   FaFacebook,
   FaHeart,
@@ -76,7 +76,10 @@ const Header = ({ setShowLogin }) => {
               +1 234 567 8900
             </span>
           </div>
-          <div className="flex space-x-4">
+          <div className="flex items-center space-x-4">
+            <button className="hover:text-white/80 transition-colors duration-300 bg-green-500 border border-white rounded-full px-3 py-1">
+              Book A Service
+            </button>
             {socialLinks.map(({ Icon, to, label }) => (
               <a
                 key={label}

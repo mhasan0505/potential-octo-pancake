@@ -7,23 +7,23 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
-import { IoIosArrowRoundForward, IoIosMail } from "react-icons/io";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import sslCommerz_mobile from "../../assets/ssl-mobile.png";
-import ssltablet from "../../assets/ssl-tablet.png";
 import sslWeb from "../../assets/ssl-web.png";
 import BottomNavbar from "../BottomNavbar/BottomNavbar";
 
 const Footer = () => {
-  const [isVisible, setIsVisible] = useState(window.scrollY > 0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsVisible(window.scrollY > 0);
+      const scrolled = window.scrollY > 100;
+      setIsVisible(scrolled);
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -41,149 +41,167 @@ const Footer = () => {
     { label: "Industrial Support", number: "01958493388" },
   ];
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle newsletter submission
+    setEmail("");
+  };
+
   return (
     <>
-      <section className="bg-secondary relative">
-        <div className="container mx-auto">
-          <div className="lg:flex md:flex flex flex-col items-center justify-center px-4 py-10">
-            <h1 className="text-xl md:text-2xl font-bold text-white py-4 px-4">
-              Please <span className="text-primary">Call Us</span> to Take an
-              Extraordinary Service
-            </h1>
-            <button className="flex items-center gap-2 bg-primary px-4 rounded-full py-2 text-[15px] font-semibold text-white">
-              <FaPhoneAlt className="text-white text-[20px]" />
+      <footer className="relative bg-black mb-16 md:mb-0">
+        {/* Wave Animation */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute bottom-0 left-0 right-0 h-20 bg-white/5 transform -skew-y-3"></div>
+          <div className="absolute bottom-10 left-0 right-0 h-20 bg-white/5 transform skew-y-3"></div>
+        </div>
 
-              <a href="tel:+880 1958-493387">+880 1958-493387</a>
-            </button>
+        {/* Main Content */}
+        <div className="container mx-auto px-4 relative">
+          {/* Top CTA Section */}
+          <div className="py-12 text-center">
+            <div className={`transform transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                Experience <span className="text-secondary animate-pulse">Extraordinary</span> Service
+              </h2>
+              <a
+                href="tel:+880 1958-493387"
+                className="inline-flex items-center gap-3 bg-white hover:bg-secondary px-8 py-4 rounded-full transition-all duration-300 text-primary hover:text-white font-bold group"
+              >
+                <FaPhoneAlt className="text-xl group-hover:rotate-12 transition-transform" />
+                <span>+880 1958-493387</span>
+              </a>
+            </div>
           </div>
 
-          <hr className="my-8 text-white border-dashed" />
-
-          <div className="bg-secondary text-white px-8 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pb-8">
-            {/* Logo and Hours */}
-            <div className="flex flex-col">
-              <div className="bg-white w-[200px] h-[100px] rounded">
+          {/* Main Grid Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12">
+            {/* Company Info */}
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
                 <img
                   src={logo}
                   alt="Aqua Support BD"
-                  width="160"
-                  height="100"
-                  className="mx-auto pt-4"
+                  className="w-40 mx-auto"
                 />
-              </div>
-              <p className="text-white">Open The Door For Heathy Living</p>
-              <div className="text-[15px] py-4 leading-6">
-                <h1 className="text-md font-bold pb-2 text-white">
-                  Open Hours:
-                </h1>
-                <p className="text-white">
-                  Saturday -Thursday: 9:00am - 8:00pm
+                <p className="text-white/90 text-center mt-4 font-medium">
+                  Open The Door For Healthy Living
                 </p>
-                <p className="text-white">Friday: Closed</p>
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm p-4 rounded-lg space-y-2">
+                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                  <span className="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+                  Open Hours:
+                </h3>
+                <p className="text-white/90 pl-4">Saturday - Thursday: 9:00am - 8:00pm</p>
+                <p className="text-white/90 pl-4">Friday: Closed</p>
               </div>
             </div>
 
-            {/* Address */}
-            <div>
-              <h1 className="text-md font-bold text-white pb-2">Address:</h1>
-              <div className="flex items-center gap-4 text-[15px]">
-                <FaLocationDot className="text-primary text-lg" />
-                <p className="text-white">
-                  House #19, Road #02, Block #Ka, Mirpur-06, Dhaka, Bangladesh,
-                  1216
-                </p>
-              </div>
-              <div className="text-[15px] flex items-baseline gap-4 py-4">
-                <FaPhoneAlt className="text-lg text-primary" />
-                <div className="leading-6 flex flex-col gap-1">
+            {/* Quick Links */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-white">Quick Links</h3>
+              <ul className="space-y-3">
+                {links.map((link) => (
+                  <li key={link.text}>
+                    <Link
+                      to={link.to}
+                      className="text-white/90 hover:text-secondary flex items-center gap-2 group transition-all duration-300"
+                    >
+                      <span className="w-0 group-hover:w-4 transition-all duration-300 h-[2px] bg-secondary"></span>
+                      {link.text}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-white">Contact Us</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3 group">
+                  <FaLocationDot className="text-secondary text-xl mt-1 flex-shrink-0" />
+                  <p className="text-white/90 group-hover:text-white transition-colors">
+                    House #19, Road #02, Block #Ka, Mirpur-06, Dhaka, Bangladesh, 1216
+                  </p>
+                </div>
+                <div className="space-y-3">
                   {contactInfo.map(({ label, number }) => (
-                    <p key={number} className="text-white">
-                      {label} : {number}
-                    </p>
+                    <div key={number} className="group">
+                      <div className="flex items-center gap-3 bg-white/5 p-3 rounded-lg hover:bg-white/10 transition-all duration-300">
+                        <FaPhoneAlt className="text-secondary group-hover:rotate-12 transition-transform" />
+                        <div>
+                          <span className="text-white/70 text-sm">{label}</span>
+                          <a href={`tel:${number}`} className="block text-white group-hover:text-secondary transition-colors">
+                            {number}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
-              <div className="text-[15px] flex items-center gap-4">
-                <IoIosMail className="text-lg text-primary" />
-                <p className="text-white">info@aquasupportbd.com</p>
-              </div>
             </div>
 
-            {/* Links */}
-            <div className="text-[15px]">
-              <h1 className="text-md font-bold text-white pb-2">
-                Usefull Links
-              </h1>
-              <div className="flex flex-col leading-6">
-                {links.map(({ to, text }) => (
-                  <Link
-                    key={to}
-                    to={to}
-                    className="text-white hover:text-primary"
-                  >
-                    {text}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Subscribe */}
-            <div>
-              <h1 className="text-md font-bold text-white">Subscribe</h1>
-              <p className="text-white">
-                For latest news and offers subscribe to our newsletter
-              </p>
-              <div className="flex items-center py-4">
-                <input
-                  type="text"
-                  placeholder="Your Email"
-                  className="w-full h-10 px-6 rounded-l-full text-black outline-none placeholder:text-[15px] focus:border-primary"
-                />
-                <button type="button" aria-label="Subscribe">
-                  <IoIosArrowRoundForward className="text-[20px] bg-primary h-10 w-10 rounded-r-full" />
+            {/* Newsletter */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-white">Stay Updated</h3>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="relative group">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Your email address"
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-secondary border border-white/10 transition-all duration-300"
+                  />
+                  <div className="absolute bottom-0 left-0 w-0 group-hover:w-full h-[2px] bg-secondary transition-all duration-300"></div>
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-secondary hover:bg-secondary-light text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+                >
+                  Subscribe to Newsletter
                 </button>
+              </form>
+              <div className="flex justify-center gap-4 pt-4">
+                <a href="#" className="text-white/80 hover:text-secondary text-2xl transition-all duration-300 hover:scale-110">
+                  <FaFacebookSquare />
+                </a>
+                <a href="#" className="text-white/80 hover:text-secondary text-2xl transition-all duration-300 hover:scale-110">
+                  <FaInstagram />
+                </a>
+                <a href="#" className="text-white/80 hover:text-secondary text-2xl transition-all duration-300 hover:scale-110">
+                  <FaYoutube />
+                </a>
+                <a href="#" className="text-white/80 hover:text-secondary text-2xl transition-all duration-300 hover:scale-110">
+                  <FaGooglePlusG />
+                </a>
               </div>
             </div>
           </div>
 
-          <div className="flex items-center justify-center py-2">
-            <img
-              className="block sm:hidden"
-              src={sslCommerz_mobile}
-              alt="Mobile Payment Options"
-            />
-            <img
-              className="hidden sm:block lg:hidden"
-              src={ssltablet}
-              alt="Tablet Payment Options"
-            />
-            <img
-              className="hidden lg:block"
-              src={sslWeb}
-              alt="Web Payment Options"
-            />
+          {/* Bottom Bar */}
+          <div className="border-t border-white/10 py-6 mt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-white/90 text-center md:text-left">
+                &copy; {new Date().getFullYear()} Aqua Support BD. All rights reserved.
+              </p>
+              <div className="flex items-center gap-4">
+                <img 
+                  src={sslWeb} 
+                  alt="SSL Commerz" 
+                  className="h-8 opacity-80 hover:opacity-100 transition-opacity duration-300" 
+                />
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </footer>
 
-      <div className="bg-secondary/90 w-full items-center flex flex-col justify-center text-[15px] text-white mb-16 md:mb-0">
-        <p className="text-white">
-          {" "}
-          Aqua Support BD © 2024 All Right Reserved{" "}
-        </p>
-        <div className="flex items-center gap-4 py-4">
-          {[FaFacebookSquare, FaInstagram, FaGooglePlusG, FaYoutube].map(
-            (Icon, index) => (
-              <Icon
-                key={index}
-                className="icon text-white hover:text-primary"
-              />
-            )
-          )}
-        </div>
-      </div>
-
-      <div className={`absolute md:hidden ${isVisible ? "" : "hidden"}`}>
+      {/* Mobile Bottom Navigation */}
+      <div className={`fixed bottom-0 left-0 right-0 md:hidden ${isVisible ? "" : "hidden"} z-50`}>
         <BottomNavbar />
       </div>
     </>
