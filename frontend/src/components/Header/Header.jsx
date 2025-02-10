@@ -77,9 +77,13 @@ const Header = ({ setShowLogin }) => {
             </span>
           </div>
           <div className="flex items-center space-x-4">
-            <button className="hover:text-white/80 transition-colors duration-300 bg-green-500 border border-white rounded-full px-3 py-1">
+            <NavLink
+              to="/service"
+              className="hover:text-white/80 transition-colors duration-300"
+              aria-label="Book A Service"
+            >
               Book A Service
-            </button>
+            </NavLink>
             {socialLinks.map(({ Icon, to, label }) => (
               <a
                 key={label}

@@ -28,6 +28,7 @@ import { AuthProvider } from "./context/AuthContext";
 import Dashboard from "./components/admin/Dashboard";
 import OrdersList from "./components/admin/OrdersList";
 import PrivateRoute from "./routes/PrivateRoute";
+import ServicePage from "./pages/ServicePage/ServicePage";
 
 const App = () => {
   useEffect(() => {
@@ -45,6 +46,7 @@ const App = () => {
         <Header setShowLogin={setShowLogin} />
         <main>
           <Routes>
+            <Route path="/service" element={<ServicePage />} />
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
