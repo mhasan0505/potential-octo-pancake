@@ -28,10 +28,10 @@ const navigation = [
 ];
 
 const socialLinks = [
-  { Icon: FaFacebook, to: "#", label: "Facebook" },
-  { Icon: FaWhatsapp, to: "#", label: "WhatsApp" },
-  { Icon: FaInstagram, to: "#", label: "Instagram" },
-  { Icon: FaYoutube, to: "#", label: "YouTube" },
+  { Icon: FaFacebook, to: "https://www.facebook.com/AquaSupportEng", target: "_blank", label: "Facebook" },
+  { Icon: FaWhatsapp, to: "https://wa.me/8801958493387", target: "_blank", label: "WhatsApp" },
+  { Icon: FaInstagram, to: "https://www.instagram.com/aquasupportbd/", target: "_blank", label: "Instagram" },
+  { Icon: FaYoutube, to: "https://www.youtube.com/@aquasupportengineering", target: "_blank", label: "YouTube" },
 ];
 
 const Header = ({ setShowLogin }) => {
@@ -57,6 +57,10 @@ const Header = ({ setShowLogin }) => {
       setSearchInput("");
       setShowMobileSearch(false);
     }
+  };
+
+  const handleSocialIconClick = (url) => {
+    window.open(url, '_blank');
   };
 
   return (
@@ -86,8 +90,13 @@ const Header = ({ setShowLogin }) => {
             </NavLink>
             {socialLinks.map(({ Icon, to, label }) => (
               <a
+                target="_blank"
                 key={label}
                 href={to}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSocialIconClick(to);
+                }}
                 className="hover:text-white/80 transition-colors duration-300"
                 aria-label={label}
               >
