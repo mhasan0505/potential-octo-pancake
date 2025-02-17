@@ -1,26 +1,26 @@
 import { MdDiscount, MdDevices, MdPayments } from "react-icons/md";
 
-const BEnefits = () => {
+const Benefits = () => {
 
 
     const benefits = [
         {
-          icon: <MdDiscount className="text-4xl text-primary" />,
+          icon: <MdDiscount className="text-xl text-primary" />,
           title: "Instant Discount",
           description: "10% instant discount with all debit and credit cards"
         },
         {
-          icon: <MdDevices className="text-4xl text-primary" />,
+          icon: <MdDevices className="text-xl text-primary" />,
           title: "Exchange old device",
           description: "Save upto ৳3,000 by exchanging an old device"
         },
         {
-          icon: <MdPayments className="text-4xl text-primary" />,
+          icon: <MdPayments className="text-xl text-primary" />,    
           title: "No Cost EMIs",
-          description: "EMIs upto 6 months for purchases above ৳10,000"
+          description: "EMIs upto 6 months for purchases above ৳5,000"
         },
         {
-          icon: <MdPayments className="text-4xl text-primary" />,
+          icon: <MdPayments className="text-xl text-primary" />,
           title: "Online coupons",
           description: "Get additional online exclusive coupons on login"
         }
@@ -29,7 +29,7 @@ const BEnefits = () => {
   return (
     <section className="bg-background py-16">
     <div className="container mx-auto px-4">
-      <h2 className="text-3xl font-bold text-center mb-12">
+      <h2 className="text-2xl font-bold text-center mb-12">     
         Why buy Water Purifiers from Aqua Support BD?
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -42,7 +42,7 @@ const BEnefits = () => {
               <div className="p-3 bg-background-light rounded-full">
                 {benefit.icon}
               </div>
-              <h3 className="text-xl font-semibold text-gray-800">
+              <h3 className="text-lg font-medium text-gray-800">
                 {benefit.title}
               </h3>
               <p className="text-gray-600">
@@ -57,4 +57,4 @@ const BEnefits = () => {
   )
 }
 
-export default BEnefits
+export default Benefits

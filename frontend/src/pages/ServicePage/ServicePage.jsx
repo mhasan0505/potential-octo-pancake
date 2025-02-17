@@ -37,7 +37,7 @@ const ServicePage = () => {
             <option value="Re-Install Water Filter">Re-Install Water Filter</option>
           </select>
           <textarea name="message" placeholder="Message" required value={formData.message} onChange={handleChange} className="w-full rounded-lg border border-gray-300 h-24 p-2 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
-          <button type="submit" className="h-12 rounded-lg bg-cyan-500 text-white font-bold hover:bg-cyan-600 transition duration-300">Submit</button>
+          <button type="submit" className="h-12 rounded-lg bg-cyan-500 text-white font-bold hover:bg-cyan-600 transition duration-300">Book A Service</button>
         </form>
       </div>
     </div>

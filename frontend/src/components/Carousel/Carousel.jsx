@@ -58,7 +58,7 @@ const Carousel = () => {
     <div className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-white">
       {/* Carousel Container */}
       <div className="container mx-auto px-4 py-4 md:py-8">
-        <div className="relative h-[400px] md:h-[600px]">
+        <div className="relative h-auto carousel w-full">
           {/* Slides */}
           {featuredProducts.map((product, index) => (
             <div
@@ -69,7 +69,7 @@ const Carousel = () => {
                   : index < currentSlide
                   ? "opacity-0 -translate-x-full"
                   : "opacity-0 translate-x-full"
-              }`}
+              } carousel-item w-full h-auto`}
               onTransitionEnd={handleAnimationEnd}
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -108,7 +108,7 @@ const Carousel = () => {
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="relative w-full h-[300px] md:h-[400px] object-contain transform hover:scale-105 transition-transform duration-500"
+                      className="relative w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                 </div>

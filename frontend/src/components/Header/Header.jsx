@@ -77,13 +77,13 @@ const Header = ({ setShowLogin }) => {
             </span>
             <span className="flex items-center text-sm">
               <FaPhone className="mr-2" />
-              +1 234 567 8900
+              +8801958493387
             </span>
           </div>
           <div className="flex items-center space-x-4">
             <NavLink
               to="/service"
-              className="hover:text-white/80 transition-colors duration-300"
+              className="hover:text-white/80 transition-colors duration-300 border border-white px-4 py-2 rounded-full"
               aria-label="Book A Service"
             >
               Book A Service

@@ -49,7 +49,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="relative bg-black mb-16 md:mb-0">
+      <footer className="relative bg-cyan-300 mb-16 md:mb-0">
         {/* Wave Animation */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute bottom-0 left-0 right-0 h-20 bg-white/5 transform -skew-y-3"></div>

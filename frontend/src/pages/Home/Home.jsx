@@ -3,7 +3,7 @@ import Carousel from "../../components/Carousel/Carousel";
 import OurClients from "../../components/OurClients/OurClients";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import Shop from "../Shop/Shop";
-import BEnefits from "../../components/Benefits/BEnefits";
+import Benefits from "../../components/Benefits/Benefits";
 import Hero from "../../components/Hero/Hero";
 
 const Home = () => {
@@ -14,8 +14,7 @@ const Home = () => {
       <Shop />
       <BrandPartner />
       <OurClients />
-        {/* <RelativeProduct /> */}
-        <BEnefits />
+      <Benefits />
       <Testimonials />
     </div>
   );
