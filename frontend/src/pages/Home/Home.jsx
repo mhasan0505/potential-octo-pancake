@@ -3,8 +3,8 @@ import Carousel from "../../components/Carousel/Carousel";
 import OurClients from "../../components/OurClients/OurClients";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import Shop from "../Shop/Shop";
-import Benefits from "../../components/Benefits/Benefits";
 import Hero from "../../components/Hero/Hero";
+import Benefits from "../../components/Benefits/Benefits";
 
 const Home = () => {
   return (
@@ -13,11 +13,12 @@ const Home = () => {
       <Carousel />
       <Shop />
       <BrandPartner />
-      <OurClients />
       <Benefits />
+      <OurClients />
       <Testimonials />
     </div>
   );
 };
 
 export default Home;
+
